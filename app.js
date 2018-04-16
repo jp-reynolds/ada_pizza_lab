@@ -26,14 +26,13 @@ app.get("/pizza", (req, res) => {
 
 	const pizzaString = JSON.stringify(pizza);
 
-	res.render('index', {pizzaString});
+	res.render('index', {pizza: pizza});
 })
 
 app.get("/pizza/:id", (req, res) => {
 	let id = req.params.id;
 	
-	const pizzaString = JSON.stringify(pizza);
-	res.render('index', {pizzaString});
+	res.render('single', pizza[id-1]);
 })
 
 
