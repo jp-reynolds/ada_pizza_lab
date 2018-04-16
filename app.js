@@ -20,15 +20,19 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
+//this will take you to the homepage
+app.get("/home", (req, res) => {
 
+	res.render('homepage', {pizza: pizza});
+})
 
+//this will list all pizzas
 app.get("/pizza", (req, res) => {
-
-	const pizzaString = JSON.stringify(pizza);
 
 	res.render('index', {pizza: pizza});
 })
 
+//this will take you to a specific pizza
 app.get("/pizza/:id", (req, res) => {
 	let id = req.params.id;
 	
