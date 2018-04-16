@@ -25,6 +25,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.get("/pizza", (req, res) => {
 
 	const pizzaString = JSON.stringify(pizza);
+
 	res.render('index', {pizzaString});
 })
 
